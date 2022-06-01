@@ -1,25 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   _print_di.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanhapa <chanhapa@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/16 18:30:44 by chanhapa          #+#    #+#             */
-/*   Updated: 2022/03/22 17:43:39 by chanhapa         ###   ########.fr       */
+/*   Created: 2022/06/01 22:49:33 by chanhapa          #+#    #+#             */
+/*   Updated: 2022/06/01 22:51:39 by chanhapa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+void	_write_r(long nbr)
 {
-	size_t	i;
+	char	c;
 
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
-		i++;
-	write(fd, s, i);
+	if (nbr / 10 == 0)
+	{
+		c = nbr + '0';
+		write(1, &c, 1);
+	}
+	else
+	{
+		_write_r(nbr / 10);
+		c = nbr % 10 + '0';
+		write(1, &c, 1);
+	}
+}
+
+void	_print_di(int n)
+{
+	long	nbr;
+
+	nbr = n;
+	if (n < 0)
+	{
+		nbr *= -1;
+		write(1, "-", 1);
+	}
+	_write_r(nbr);
 }

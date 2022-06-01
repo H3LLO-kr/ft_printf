@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   _print_u.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chanhapa <chanhapa@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/01 09:59:13 by chanhapa          #+#    #+#             */
-/*   Updated: 2022/06/01 14:56:32 by chanhapa         ###   ########.fr       */
+/*   Created: 2022/06/01 22:44:32 by chanhapa          #+#    #+#             */
+/*   Updated: 2022/06/01 22:52:17 by chanhapa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
+#include "ft_printf.h"
 
-# define LIBFT_H
+void	_write_u_r(unsigned int n)
+{
+	char	c;
 
-# include <unistd.h>
+	if (n / 10 == 0)
+	{
+		c = n + '0';
+		write(1, &c, 1);
+	}
+	else
+	{
+		_write_u_r(n / 10);
+		c = n % 10 + '0';
+		write(1, &c, 1);
+	}
+}
 
-void	ft_putchar_fd(char c, int fd);
-void	ft_putnbr_fd(int n, int base, int fd);
-char	*ft_strchr(const char *s, int c);
-
-#endif
+void	_print_u(unsigned int n)
+{
+	_write_u_r(n);
+}

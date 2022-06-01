@@ -6,12 +6,11 @@
 /*   By: chanhapa <chanhapa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 14:37:38 by chanhapa          #+#    #+#             */
-/*   Updated: 2022/06/01 17:31:50 by chanhapa         ###   ########.fr       */
+/*   Updated: 2022/06/02 00:17:51 by chanhapa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
 
 int	ft_printf(const char *strbuf, ...)
 {
@@ -24,12 +23,12 @@ int	ft_printf(const char *strbuf, ...)
 	{
 		if (strbuf[index] == '%')
 		{
-			_printf_extra(ap, strbuf[index + 1]);
-			index++;
+			_printf_extra(&ap, strbuf[index + 1]);
+			index += 2;
 		}
 		else
 		{
-			ft_putchar_fd(strbuf[index], 1);
+			_print_c(strbuf[index]);
 			index++;
 		}
 	}
@@ -37,9 +36,24 @@ int	ft_printf(const char *strbuf, ...)
 	return (0);
 }
 
-void	_printf_extra(va_list ap, char c)
+void	_printf_extra(va_list* ap, char c)
 {
-	
+	if (c == 'c')
+		_print_c(va_arg(*ap, int));
+	else if (c == 's')
+		_print_s(va_arg(*ap, char*));
+	else if (c == 'p')
+		_print_p(va_arg(*ap, long));
+	else if (ft_strchr("di", c))
+		_print_di(va_arg(*ap, int));
+	else if (c == 'u')
+		_print_u(va_arg(*ap, unsigned int));
+	else if (c == 'x')
+		_print_xX(va_arg(*ap, int), 0);
+	else if (c == 'X')
+		_print_xX(va_arg(*ap, int), 1);
+	else if (c == '%')
+		write(1, "%", 1);
 }
 
 int	_count_argu(const char *strbuf)
