@@ -6,38 +6,45 @@
 /*   By: chanhapa <chanhapa@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 22:49:33 by chanhapa          #+#    #+#             */
-/*   Updated: 2022/06/01 22:51:39 by chanhapa         ###   ########.fr       */
+/*   Updated: 2022/06/02 00:40:16 by chanhapa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	_write_r(long nbr)
+int	_write_r(long nbr)
 {
 	char	c;
+	int		ret;
 
 	if (nbr / 10 == 0)
 	{
 		c = nbr + '0';
 		write(1, &c, 1);
+		return (1);
 	}
 	else
 	{
-		_write_r(nbr / 10);
+		ret = _write_r(nbr / 10);
 		c = nbr % 10 + '0';
 		write(1, &c, 1);
+		return (ret + 1);
 	}
 }
 
-void	_print_di(int n)
+int	_print_di(int n)
 {
 	long	nbr;
+	int		ret;
 
 	nbr = n;
+	ret = 0;
 	if (n < 0)
 	{
 		nbr *= -1;
 		write(1, "-", 1);
+		ret++;
 	}
-	_write_r(nbr);
+	ret += _write_r(nbr);
+	return (ret);
 }
