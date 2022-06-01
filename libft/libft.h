@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanhapa <chanhapa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chanhapa <chanhapa@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 14:37:53 by chanhapa          #+#    #+#             */
-/*   Updated: 2022/06/01 14:55:57 by chanhapa         ###   ########.fr       */
+/*   Created: 2022/06/01 09:59:13 by chanhapa          #+#    #+#             */
+/*   Updated: 2022/06/01 14:56:32 by chanhapa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
+#ifndef LIBFT_H
 
-# define FT_PRINTF_H
+# define LIBFT_H
 
 # include <unistd.h>
-# include <stdarg.h>
 
-int		ft_printf(const char *strbuf, ...);
-int		_count_argu(const char *strbuf);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putnbr_fd(int n, int base, int fd);
+char	*ft_strchr(const char *s, int c);
 
 #endif

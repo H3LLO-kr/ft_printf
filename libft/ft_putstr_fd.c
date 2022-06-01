@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanhapa <chanhapa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chanhapa <chanhapa@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 14:37:53 by chanhapa          #+#    #+#             */
-/*   Updated: 2022/06/01 14:55:57 by chanhapa         ###   ########.fr       */
+/*   Created: 2022/03/16 18:30:44 by chanhapa          #+#    #+#             */
+/*   Updated: 2022/03/22 17:43:39 by chanhapa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
+#include "libft.h"
 
-# define FT_PRINTF_H
+void	ft_putstr_fd(char *s, int fd)
+{
+	size_t	i;
 
-# include <unistd.h>
-# include <stdarg.h>
-
-int		ft_printf(const char *strbuf, ...);
-int		_count_argu(const char *strbuf);
-
-#endif
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i])
+		i++;
+	write(fd, s, i);
+}

@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chanhapa <chanhapa@student.42.fr>          +#+  +:+       +#+        */
+/*   By: chanhapa <chanhapa@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 14:37:53 by chanhapa          #+#    #+#             */
-/*   Updated: 2022/06/01 14:55:57 by chanhapa         ###   ########.fr       */
+/*   Created: 2022/03/14 23:02:56 by chanhapa          #+#    #+#             */
+/*   Updated: 2022/03/25 21:07:07 by chanhapa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
+#include "libft.h"
 
-# define FT_PRINTF_H
+char	*ft_strchr(const char *s, int c)
+{
+	char	chr;
+	int		i;
 
-# include <unistd.h>
-# include <stdarg.h>
-
-int		ft_printf(const char *strbuf, ...);
-int		_count_argu(const char *strbuf);
-
-#endif
+	i = 0;
+	chr = c;
+	while (s[i] != chr)
+	{
+		if (!s[i])
+			return (NULL);
+		i++;
+	}
+	return ((char *)s + i);
+}
