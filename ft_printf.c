@@ -6,7 +6,7 @@
 /*   By: chanhapa <chanhapa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 14:37:38 by chanhapa          #+#    #+#             */
-/*   Updated: 2022/06/02 00:48:13 by chanhapa         ###   ########.fr       */
+/*   Updated: 2022/06/04 12:24:47 by chanhapa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,25 +62,5 @@ int	_printf_extra(va_list *ap, char c)
 		write(1, "%", 1);
 		ret = 1;
 	}
-	else
-	{
-		
-	}
 	return (ret);
-}
-
-int	_count_argu(const char *strbuf)
-{
-	int	count;
-	int	i;
-
-	count = 0;
-	i = 0;
-	while (strbuf[i])
-	{
-		if (strbuf[i] == '%')
-			count++;
-		i++;
-	}
-	return (count);
 }

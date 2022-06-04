@@ -6,7 +6,7 @@
 /*   By: chanhapa <chanhapa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 14:37:53 by chanhapa          #+#    #+#             */
-/*   Updated: 2022/06/02 00:44:02 by chanhapa         ###   ########.fr       */
+/*   Updated: 2022/06/04 12:25:02 by chanhapa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ char	*ft_strchr(const char *s, int c);
 
 //printf
 int		ft_printf(const char *strbuf, ...);
-int		_count_argu(const char *strbuf);
 int		_printf_extra(va_list *ap, char c);
 
 #endif
