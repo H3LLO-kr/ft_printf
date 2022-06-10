@@ -6,7 +6,7 @@
 /*   By: chanhapa <chanhapa@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 22:52:28 by chanhapa          #+#    #+#             */
-/*   Updated: 2022/06/10 11:37:18 by chanhapa         ###   ########.fr       */
+/*   Updated: 2022/06/10 11:40:58 by chanhapa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	_write_hex_l_r(unsigned int nbr)
 	else
 	{
 		ret = _write_hex_l_r(nbr / 16);
-		c = "0123456789abcdef"[nbr];
+		c = "0123456789abcdef"[nbr % 16];
 		write(1, &c, 1);
 		return (ret + 1);
 	}
@@ -39,20 +39,14 @@ int	_write_hex_h_r(unsigned int nbr)
 
 	if (nbr / 16 == 0)
 	{
-		if (nbr % 16 < 10)
-			c = nbr + '0';
-		else
-			c = nbr + 'A' - 10;
+		c = "0123456789ABCDEF"[nbr];
 		write(1, &c, 1);
 		return (1);
 	}
 	else
 	{
 		ret = _write_hex_h_r(nbr / 16);
-		if (nbr % 16 < 10)
-			c = nbr % 16 + '0';
-		else
-			c = nbr % 16 + 'A' - 10;
+		c = "0123456789ABCDEF"[nbr % 16];
 		write(1, &c, 1);
 		return (ret + 1);
 	}
