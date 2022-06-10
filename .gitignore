@@ -2,3 +2,5 @@
 *.o
 printfTester/
 briseur2reves
+main.c
+main
