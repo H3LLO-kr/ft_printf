@@ -6,7 +6,7 @@
 /*   By: chanhapa <chanhapa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 14:37:53 by chanhapa          #+#    #+#             */
-/*   Updated: 2022/06/04 12:25:02 by chanhapa         ###   ########.fr       */
+/*   Updated: 2022/06/14 16:27:52 by chanhapa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		_print_di(int n);
 int		_print_p(long n);
 int		_print_s(char *s);
 int		_print_u(unsigned int n);
-int		_print_xX(int n, int lowhigh);
+int		_print_xux(int n, int lowhigh);
 
 //Libft
 char	*ft_strchr(const char *s, int c);

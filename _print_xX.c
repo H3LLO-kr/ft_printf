@@ -6,7 +6,7 @@
 /*   By: chanhapa <chanhapa@student.42seoul.kr      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 22:52:28 by chanhapa          #+#    #+#             */
-/*   Updated: 2022/06/10 11:40:58 by chanhapa         ###   ########.fr       */
+/*   Updated: 2022/06/14 16:27:38 by chanhapa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	_write_hex_h_r(unsigned int nbr)
 	}
 }
 
-int	_print_xX(int n, int lowhigh)
+int	_print_xux(int n, int lowhigh)
 {
 	unsigned int	nbr;
 	int				ret;

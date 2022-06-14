@@ -6,7 +6,7 @@
 /*   By: chanhapa <chanhapa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 14:37:38 by chanhapa          #+#    #+#             */
-/*   Updated: 2022/06/04 12:24:47 by chanhapa         ###   ########.fr       */
+/*   Updated: 2022/06/14 16:28:18 by chanhapa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int	_printf_extra(va_list *ap, char c)
 	else if (c == 'u')
 		ret = _print_u(va_arg(*ap, unsigned int));
 	else if (c == 'x')
-		ret = _print_xX(va_arg(*ap, int), 0);
+		ret = _print_xux(va_arg(*ap, int), 0);
 	else if (c == 'X')
-		ret = _print_xX(va_arg(*ap, int), 1);
+		ret = _print_xux(va_arg(*ap, int), 1);
 	else if (c == '%')
 	{
 		write(1, "%", 1);
